@@ -110,46 +110,34 @@ describe('application logic', () => {
 
     it('creates a tally for the voted entry', () => {
       const state = Map({
-        vote: Map({
-          pair: List.of('Transpotting', '28 Days Later')
-        }),
-        entries: List()
+        pair: List.of('Transpotting', '28 Days Later')
       });
       const nextState = vote(state, 'Transpotting');
 
       expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Transpotting', '28 Days Later'),
-          tally: Map({
-            'Transpotting': 1
-          })
-        }),
-        entries: List()
+        pair: List.of('Transpotting', '28 Days Later'),
+        tally: Map({
+          'Transpotting': 1
+        })
       }));
     });
 
     it('adds to existing tally for the voted entry', () => {
       const state = Map({
-        vote: Map({
-          pair: List.of('Transpotting', '28 Days Later'),
-          tally: Map({
-            'Transpotting': 3,
-            '28 Days Later': 2
-          })
-        }),
-        entries: List()
+        pair: List.of('Transpotting', '28 Days Later'),
+        tally: Map({
+          'Transpotting': 3,
+          '28 Days Later': 2
+        })
       });
       const nextState = vote(state, 'Transpotting');
 
       expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Transpotting', '28 Days Later'),
-          tally: Map({
-            'Transpotting': 4,
-            '28 Days Later': 2
-          })
-        }),
-        entries: List()
+        pair: List.of('Transpotting', '28 Days Later'),
+        tally: Map({
+          'Transpotting': 4,
+          '28 Days Later': 2
+        })
       }));
     });
 
